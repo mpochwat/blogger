@@ -15,7 +15,9 @@
 			<%= yield %>
 			<hr>
 			<h6>
-				<% if logged_in? %>
+				<% if Author.count == 0 %>
+					<%= link_to 'New Author', new_author_path %>
+				<% elsif logged_in? %>
 					<%= "Logged in as #{current_user.email}" %>
 					<%= link_to "(logout)", logout_path %>
 				<% else %>
